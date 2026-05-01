@@ -1,11 +1,22 @@
 import Link from "next/link";
 
-export default function Home() {
+type Mode = "recruteur" | "client" | null;
+
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ for?: string }>;
+}) {
+  const { for: modeParam } = await searchParams;
+  const mode: Mode =
+    modeParam === "recruteur" || modeParam === "client" ? modeParam : null;
+
   return (
     <div className="min-h-screen bg-white">
       <Nav />
       <main>
-        <Hero />
+        <Hero mode={mode} />
+        {mode && <PourToiSi mode={mode} />}
         <About />
         <SideProjects />
         <TrackRecord />
@@ -20,7 +31,9 @@ function Nav() {
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-zinc-100">
       <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-        <span className="font-semibold text-zinc-900 text-sm">Louis Bolatre</span>
+        <Link href="/" className="font-semibold text-zinc-900 text-sm hover:text-zinc-600 transition-colors">
+          Louis Bolatre
+        </Link>
         <div className="flex gap-6 text-sm text-zinc-500">
           <a href="#about" className="hover:text-zinc-900 transition-colors">
             À propos
@@ -40,34 +53,160 @@ function Nav() {
   );
 }
 
-function Hero() {
+const modeContent = {
+  recruteur: {
+    badge: "Senior Product Manager · Disponible",
+    subtitle: "Je ship en autonomie avec l'IA.",
+    subtitle2: "Pas juste stratège.",
+    cta1: { label: "Voir le track record", href: "#track-record" },
+    cta2: { label: "Me contacter", href: "#contact" },
+    switchLabel: "Vous cherchez une mission freelance ?",
+    switchHref: "/?for=client",
+  },
+  client: {
+    badge: "PM Freelance · Disponible",
+    subtitle: "Je prends ownership sur ton produit.",
+    subtitle2: "Pas juste de la consultation.",
+    cta1: { label: "Voir mes missions", href: "#track-record" },
+    cta2: { label: "Me contacter", href: "#contact" },
+    switchLabel: "Vous recrutez un PM salarié ?",
+    switchHref: "/?for=recruteur",
+  },
+};
+
+function Hero({ mode }: { mode: Mode }) {
+  if (!mode) {
+    return (
+      <section className="max-w-4xl mx-auto px-6 pt-24 pb-24">
+        <p className="text-xs font-semibold text-indigo-600 tracking-widest uppercase mb-6">
+          Senior Product Manager
+        </p>
+        <h1 className="text-5xl md:text-7xl font-bold text-zinc-900 leading-none tracking-tight mb-8">
+          Louis Bolatre
+        </h1>
+        <p className="text-xl md:text-2xl text-zinc-500 max-w-lg mb-2 leading-relaxed">
+          Je ship en autonomie avec l&apos;IA.
+        </p>
+        <p className="text-xl md:text-2xl text-zinc-300 max-w-lg mb-12 leading-relaxed">
+          Pas juste stratège.
+        </p>
+        <p className="text-sm font-medium text-zinc-700 mb-4">
+          Vous êtes&nbsp;?
+        </p>
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link
+            href="/?for=recruteur"
+            className="inline-flex items-center gap-2 bg-zinc-900 text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-zinc-700 transition-colors"
+          >
+            Je recrute un PM →
+          </Link>
+          <Link
+            href="/?for=client"
+            className="inline-flex items-center gap-2 border border-zinc-200 text-zinc-700 px-6 py-3 rounded-lg text-sm font-medium hover:bg-zinc-50 transition-colors"
+          >
+            Je cherche une mission freelance →
+          </Link>
+        </div>
+        <p className="text-xs text-zinc-400">
+          Ce portfolio a été construit et déployé en autonomie avec{" "}
+          <span className="text-zinc-600 font-medium">Claude Code</span>{" "}
+          — preuve #1 de ce que je dis faire.
+        </p>
+      </section>
+    );
+  }
+
+  const c = modeContent[mode];
+
   return (
     <section className="max-w-4xl mx-auto px-6 pt-24 pb-24">
       <p className="text-xs font-semibold text-indigo-600 tracking-widest uppercase mb-6">
-        Senior Product Manager
+        {c.badge}
       </p>
       <h1 className="text-5xl md:text-7xl font-bold text-zinc-900 leading-none tracking-tight mb-8">
         Louis Bolatre
       </h1>
       <p className="text-xl md:text-2xl text-zinc-500 max-w-lg mb-2 leading-relaxed">
-        Je ship en autonomie avec l&apos;IA.
+        {c.subtitle}
       </p>
       <p className="text-xl md:text-2xl text-zinc-300 max-w-lg mb-12 leading-relaxed">
-        Pas juste stratège.
+        {c.subtitle2}
       </p>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-3 mb-8">
         <a
-          href="#track-record"
+          href={c.cta1.href}
           className="inline-flex items-center gap-2 bg-zinc-900 text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-zinc-700 transition-colors"
         >
-          Voir mes projets
+          {c.cta1.label}
         </a>
         <a
-          href="#contact"
+          href={c.cta2.href}
           className="inline-flex items-center gap-2 border border-zinc-200 text-zinc-700 px-6 py-3 rounded-lg text-sm font-medium hover:bg-zinc-50 transition-colors"
         >
-          Me contacter
+          {c.cta2.label}
         </a>
+      </div>
+      <p className="text-xs text-zinc-400 mb-2">
+        Ce portfolio a été construit et déployé en autonomie avec{" "}
+        <span className="text-zinc-600 font-medium">Claude Code</span>{" "}
+        — preuve #1 de ce que je dis faire.
+      </p>
+      <Link
+        href={c.switchHref}
+        className="text-xs text-zinc-400 hover:text-zinc-600 transition-colors"
+      >
+        {c.switchLabel} →
+      </Link>
+    </section>
+  );
+}
+
+function PourToiSi({ mode }: { mode: "recruteur" | "client" }) {
+  const content = {
+    recruteur: {
+      items: [
+        "Tu cherches un Senior PM ou 1er PM pour une startup post-levée",
+        "Tu veux quelqu'un qui livre sans avoir besoin d'être managé",
+        "Tu apprécies un PM qui comprend la technique de l'intérieur",
+      ],
+      notFor:
+        "Tu cherches un PM pour gérer un backlog dans une grande organisation structurée.",
+    },
+    client: {
+      items: [
+        "Tu as un produit à lancer sans PM interne",
+        "Tes devs avancent sans cadrage produit clair",
+        "Tu veux du delivery, pas juste de la stratégie",
+      ],
+      notFor:
+        "Tu cherches de la consultation stratégique sans engagement sur le delivery.",
+    },
+  };
+
+  const { items, notFor } = content[mode];
+
+  return (
+    <section className="border-y border-zinc-100 py-12">
+      <div className="max-w-4xl mx-auto px-6">
+        <p className="text-xs font-semibold text-indigo-600 tracking-widest uppercase mb-6">
+          Pour toi si...
+        </p>
+        <div className="grid md:grid-cols-2 gap-8 items-start">
+          <ul className="space-y-3">
+            {items.map((item, i) => (
+              <li key={i} className="flex gap-3 text-sm text-zinc-600">
+                <span className="text-indigo-600 font-bold shrink-0">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div className="text-sm md:border-l border-zinc-100 md:pl-8">
+            <p className="text-xs font-semibold text-zinc-400 tracking-widest uppercase mb-3">
+              Pas pour toi si
+            </p>
+            <p className="text-zinc-400">{notFor}</p>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -377,10 +516,6 @@ function Contact() {
             GitHub →
           </a>
         </div>
-        <p className="text-xs text-zinc-600">
-          Ce site a été construit avec{" "}
-          <span className="text-zinc-500">Claude Code</span>.
-        </p>
       </div>
     </footer>
   );
