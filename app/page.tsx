@@ -220,9 +220,11 @@ function About() {
         <SectionLabel>À propos</SectionLabel>
         <div className="max-w-2xl space-y-5 text-zinc-600 leading-relaxed text-[17px]">
           <p>
-            J&apos;ai passé 6 ans à construire des produits dans des
-            environnements où la vitesse compte — Ledger, Electra, Pyxo,
-            Calldesk. À chaque fois, le même objectif : comprendre vite, aligner
+            J&apos;ai passé 7 ans à construire des produits dans des
+            environnements où la vitesse compte — Kolecto, Ledger, Electra,
+            Pyxo, Calldesk — en missions via{" "}
+            <span className="text-zinc-900 font-medium">Thiga</span> ou en
+            direct. À chaque fois, le même objectif : comprendre vite, aligner
             l&apos;équipe, livrer ce qui crée de la valeur.
           </p>
           <p>
@@ -358,6 +360,24 @@ const trackRecordItems = [
     highlight:
       "1ère feature de vente de la plateforme. Anticipation e-facturation 2026.",
     slug: "kolecto",
+  },
+  {
+    company: "Thiga",
+    period: "2024 – présent",
+    domain: "Conseil PM",
+    tagline: "Senior PM Consultant · Missions scale-ups",
+    highlight:
+      "Kolecto, Electra, Ledger. Ownership total dès J1.",
+    slug: "thiga",
+  },
+  {
+    company: "Thiga Academy",
+    period: "janv. 2025 – présent",
+    domain: "Formation PM",
+    tagline: "Formateur Product Management & Product Discovery",
+    highlight:
+      "Sessions pour des groupes de PMs en entreprise. Sujets Senior PM & Discovery.",
+    slug: "thiga-academy",
   },
   {
     company: "Electra",

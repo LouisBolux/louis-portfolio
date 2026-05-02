@@ -1,5 +1,7 @@
 export const cases = [
   { label: "Kolecto", slug: "kolecto", domain: "FinTech · SaaS B2B", period: "2025 – présent" },
+  { label: "Thiga", slug: "thiga", domain: "Conseil PM", period: "2024 – présent" },
+  { label: "Thiga Academy", slug: "thiga-academy", domain: "Formation PM", period: "janv. 2025 – présent" },
   { label: "Electra", slug: "electra", domain: "GreenTech", period: "janv. – mai 2025" },
   { label: "Ledger SWAP", slug: "ledger-swap", domain: "Crypto", period: "2024" },
   { label: "Pyxo", slug: "pyxo", domain: "FoodTech", period: "2021 – 2023" },
