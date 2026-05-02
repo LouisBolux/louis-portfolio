@@ -6,35 +6,56 @@ export const meta = {
   intro: "Grands comptes signés : McDonald's, CROUS, Sushi Shop, Metro.",
 }
 
+<Role title="1er Product Manager" period="2021 – 2023" team="5 devs · 1 CTO/EM · 2 designers" />
+
 ## Contexte
 
-Pyxo élimine les emballages jetables dans la restauration grâce à un écosystème de contenants réutilisables avec traçabilité end-to-end. Je suis arrivé juste après la Série A, en tant que 1er PM de la boîte.
+Pyxo est une startup qui élimine les emballages jetables dans la restauration grâce à un écosystème de contenants réutilisables avec traçabilité end-to-end. L'idée : chaque client repart avec un contenant, le rend plus tard, et le système trace tout — prêt, utilisation, retour, nettoyage.
+
+Je suis arrivé juste après la Série A, en tant que **1er PM de la boîte**. Rien n'existait côté numérique. Deux apps à construire de zéro, simultanément.
 
 ## Le défi
 
-Rien n'existait encore côté numérique. Deux apps à construire de zéro : une B2B pour les restaurateurs (sur terminaux Sunmi Android), une B2C pour les consommateurs (iOS/Android). Plus un back-office et des intégrations partenaires (systèmes de caisse, badges RFID). Équipe : 5 devs + 1 CTO/EM + 2 designers.
+**App B2B restaurateur** — sur terminaux Sunmi Android, utilisée par des équipes de cuisine en rush. Contraintes hardware fortes, UX taillée pour des gestes rapides avec des gants, sans formation possible en condition réelle.
+
+**App B2C consommateur** — iOS et Android, pour des utilisateurs qui découvrent le concept au moment de commander. Zéro friction admissible.
+
+Plus un back-office opérationnel et des intégrations partenaires — systèmes de caisse (Lightspeed, Zelty...), badges RFID, collecteurs physiques.
 
 ## La décision clé
 
-La direction voulait lancer avec un maximum de features pour convaincre les grands comptes. J'ai défendu un MVP centré sur un seul objectif : faire fonctionner le cycle complet **prêt → utilisation → retour → traçabilité**, avant d'optimiser quoi que ce soit d'autre.
+<Callout title="Décision produit">
+La direction voulait lancer avec un maximum de features pour rassurer les grands comptes. J'ai défendu un MVP centré sur un seul objectif : faire fonctionner le cycle complet **prêt → utilisation → retour → traçabilité** avant d'optimiser quoi que ce soit d'autre.
 
-**Argument :** sans cycle fonctionnel, aucune feature supplémentaire n'aurait de valeur. Avec des données des premiers pilotes terrain, j'ai pu montrer que les frictions étaient dans le cycle de base, pas dans l'absence de features.
+Argument : sans cycle fonctionnel, aucune feature supplémentaire n'aurait de valeur. Avec les données des premiers pilotes terrain, j'ai pu montrer que les frictions étaient dans le cycle de base — pas dans l'absence de features avancées.
+</Callout>
+
+Ce cadrage a permis de livrer vite et de construire la confiance avec les grands comptes dès les premiers mois, plutôt que de promettre trop et de rater les délais.
 
 ## Ce que j'ai fait
 
-- Discovery terrain : interviews restaurateurs, clients consommateurs, équipes opérationnelles
-- Architecture produit des 2 apps en parallèle, avec contraintes hardware (Sunmi) et UX très différentes B2B/B2C
-- Roadmap Shape Up : cycles de 6 semaines, périmètres durs, pas de négociation au milieu d'un cycle
-- Delivery end-to-end : specs, coordination dev, QA, rollout
-- Projets transverses : adaptation d'un collecteur physique (hardware), discours commercial, support de présentation pour les grands comptes
+**Discovery terrain** — interviews restaurateurs, clients consommateurs, équipes opérationnelles. Comprendre les micro-frictions du cycle de retour, les blocages en caisse, les problèmes de traçabilité RFID en condition réelle.
+
+**Architecture produit des 2 apps en parallèle** — choix techniques importants sur la synchronisation offline (Sunmi en zone faible réseau), le scanning RFID, les modes de déploiement standalone vs. intégré caisse.
+
+**Roadmap Shape Up** — cycles de 6 semaines, périmètres durs. Pas de négociation au milieu d'un cycle. L'équipe savait exactement ce qu'on livrait et quand.
+
+**Delivery end-to-end** — specs, coordination dev/design, QA terrain, rollout chez les premiers clients pilotes.
+
+**Projets transverses** — adaptation d'un collecteur physique hardware, discours commercial, support de présentation pour les négociations grands comptes.
 
 ## Résultats
 
-- 2 apps livrées, en production
-- Grands comptes signés : McDonald's, CROUS, Sushi Shop, Metro
-- 2 modes de déploiement opérationnels : standalone et intégré
-- Écosystème hardware-software fonctionnel
+<MetricGroup>
+  <Metric value="2" label="Apps livrées de zéro" sub="B2B + B2C" />
+  <Metric value="4" label="Grands comptes signés" sub="McDonald's · CROUS · Sushi Shop · Metro" />
+  <Metric value="2" label="Modes de déploiement" sub="Standalone & intégré caisse" />
+</MetricGroup>
+
+Écosystème hardware-software fonctionnel en production. L'intégration des systèmes de caisse et des badges RFID a permis des déploiements dans des configurations très différentes — fast-food, restauration universitaire, restauration premium.
 
 ## Ce que j'ai appris
 
-Être 1er PM, c'est surtout décider ce qu'on ne build pas. La roadmap n'est pas un catalogue de features, c'est un argument. Et en environnement post-Série A, la confiance de l'équipe fondatrice se construit en livrant ce qu'on dit qu'on va livrer — pas en étant d'accord sur tout.
+Être 1er PM, c'est décider ce qu'on **ne** build pas. La roadmap n'est pas un catalogue de features, c'est un argument.
+
+En environnement post-Série A, la confiance de l'équipe fondatrice se construit en livrant ce qu'on dit qu'on va livrer — pas en étant d'accord sur tout. Et la meilleure façon de convaincre un grand compte, c'est d'avoir un produit qui marche vraiment dans les 3 premiers mois, pas un deck avec 40 slides.

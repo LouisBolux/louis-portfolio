@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cases } from "@/content/cases";
 
 type Mode = "recruteur" | "client" | null;
 
@@ -21,8 +22,8 @@ export default async function Home({
         <SideProjects />
         <TrackRecord />
         <HowIWork />
-        <Contact />
       </main>
+      <Contact />
     </div>
   );
 }
@@ -193,8 +194,8 @@ function PourToiSi({ mode }: { mode: "recruteur" | "client" }) {
         </p>
         <div className="grid md:grid-cols-2 gap-8 items-start">
           <ul className="space-y-3">
-            {items.map((item, i) => (
-              <li key={i} className="flex gap-3 text-sm text-zinc-600">
+            {items.map((item) => (
+              <li key={item} className="flex gap-3 text-sm text-zinc-600">
                 <span className="text-indigo-600 font-bold shrink-0">✓</span>
                 {item}
               </li>
@@ -350,13 +351,22 @@ function SideProjects() {
 
 const trackRecordItems = [
   {
-    company: "Pyxo",
-    period: "2021 – 2023",
-    domain: "FoodTech",
-    tagline: "1er PM · 2 apps de zéro · 5 devs · post-Série A",
+    company: "Kolecto",
+    period: "2025 – présent",
+    domain: "FinTech · SaaS B2B",
+    tagline: "Module Devis & Facturation · Discovery agriculture & bâtiment",
     highlight:
-      "Grands comptes signés : McDonald's, CROUS, Sushi Shop, Metro.",
-    slug: "pyxo",
+      "1ère feature de vente de la plateforme. Anticipation e-facturation 2026.",
+    slug: "kolecto",
+  },
+  {
+    company: "Electra",
+    period: "janv. – mai 2025",
+    domain: "GreenTech",
+    tagline: "4 000 → 11 000 bornes via Spark Alliance",
+    highlight:
+      "UX recharge repensée. App Android Auto. Discovery planificateur EV.",
+    slug: "electra",
   },
   {
     company: "Ledger",
@@ -366,6 +376,15 @@ const trackRecordItems = [
     highlight:
       "Delivery dans les délais. Intégrations DEX opérationnelles.",
     slug: "ledger-swap",
+  },
+  {
+    company: "Pyxo",
+    period: "2021 – 2023",
+    domain: "FoodTech",
+    tagline: "1er PM · 2 apps de zéro · 5 devs · post-Série A",
+    highlight:
+      "Grands comptes signés : McDonald's, CROUS, Sushi Shop, Metro.",
+    slug: "pyxo",
   },
   {
     company: "Calldesk",

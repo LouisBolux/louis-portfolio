@@ -6,34 +6,52 @@ export const meta = {
   intro: "1 CSM suffit là où il fallait 2 devs + 1 CSM.",
 }
 
+<Role title="Product Manager" period="2019 – 2021" team="4-7 devs · 1 CTO · équipe Sales & CSM" />
+
 ## Contexte
 
-Calldesk automatise les appels répétitifs via des callbots capables de résoudre les demandes en autonomie, 24h/24. SaaS B2B low-code. 2019-2021 — avant ChatGPT, avant que l'IA conversationnelle soit mainstream.
+Calldesk automatise les appels téléphoniques répétitifs via des callbots capables de résoudre les demandes en autonomie, 24h/24. SaaS B2B low-code, vendu à des entreprises qui gèrent des volumes d'appels importants — opérateurs télécom, assurances, services publics.
+
+2019-2021 — avant ChatGPT, avant que l'IA conversationnelle soit mainstream. Le NLP était encore affaire de spécialistes.
 
 ## Le défi
 
-Le time-to-production d'un nouveau client était de 6 mois. Process : 2 développeurs + 1 CSM mobilisés, travail manuel intense, pas de réplicabilité. Scalabilité impossible dans ces conditions.
+Le time-to-production d'un nouveau client était de **6 mois**. Pour chaque onboarding : 2 développeurs + 1 CSM mobilisés pendant des semaines, travail largement manuel, pas de réplicabilité. Dans ces conditions, croître sans exploser les coûts opérationnels était impossible.
 
 ## La décision clé
 
-Plutôt qu'ajouter des ressources (recruter des devs), j'ai creusé les causes de lenteur. Le vrai problème : la plateforme demandait une expertise technique pour configurer les bots. Les CSMs dépendaient entièrement des devs pour chaque paramètre.
+<Callout title="Diagnostic">
+Plutôt qu'ajouter des ressources (recruter des devs), j'ai creusé les causes de lenteur. Le vrai problème : la plateforme demandait une expertise technique pour configurer les bots. Les CSMs dépendaient entièrement des devs pour chaque paramètre — même les plus simples.
 
 J'ai redesigné l'architecture du produit pour que les CSMs puissent **configurer eux-mêmes 80% des bots** sans intervention dev.
+</Callout>
+
+La réponse n'était pas "plus de ressources" mais "meilleur produit". C'est une distinction qui change tout dans un SaaS B2B.
 
 ## Ce que j'ai fait
 
-- 50+ interviews utilisateurs (CSMs, clients, intégrateurs)
-- Identification des points de friction dans le workflow de configuration
-- Redéfinition du produit : UX no-code orientée CSM, séparation claire entre config métier (CSM) et paramétrage technique (dev)
-- Delivery en cycles courts avec l'équipe (4-7 devs)
-- Rôle hybride PM/avant-ventes : accompagnement des Sales sur les deals grands comptes (CAC40, opérateurs télécom)
+**Diagnostic call center** — création d'un outil de diagnostic qui permettait de s'immerger dans les opérations d'un call center prospect : analyse des flux d'appels, identification des cas d'usage automatisables, cartographie des irritants. À l'issue du diagnostic, on proposait un bot calibré et une roadmap d'automatisation directement alignée avec la stratégie du call center. C'est ce qui rendait la proposition commerciale crédible et différenciante.
+
+**50+ interviews utilisateurs** — CSMs, clients, intégrateurs. Cartographier chaque étape du workflow de configuration, identifier où les CSMs bloquaient et appelaient un dev, comprendre pourquoi.
+
+**Refonte de l'architecture produit** — UX no-code orientée CSM, séparation nette entre configuration métier (CSM en autonomie) et paramétrage technique (dev uniquement pour les cas complexes).
+
+**Delivery en cycles courts** — itérations rapides avec l'équipe, validation terrain à chaque cycle avec les CSMs.
+
+**Rôle hybride PM/avant-ventes** — accompagnement des Sales sur les deals grands comptes (CAC40, opérateurs télécom). Présentation technique du produit, qualification des cas d'usage, contribution aux réponses à appels d'offres.
 
 ## Résultats
 
-- Time-to-production : 6 mois → 2 semaines
-- Process : 2 devs + 1 CSM → 1 CSM seul
-- Contribution directe à la signature de contrats grands comptes
+<MetricGroup>
+  <Metric value="6 mois" label="Time-to-production avant" sub="Avant refonte" />
+  <Metric value="2 sem." label="Time-to-production après" sub="Après refonte" />
+  <Metric value="−2" label="Ressources par onboarding" sub="2 devs + 1 CSM → 1 CSM seul" />
+</MetricGroup>
+
+Contribution directe à la signature de contrats grands comptes — la réduction du time-to-market était un argument commercial majeur dans les appels d'offres.
 
 ## Ce que j'ai appris
 
-La meilleure feature est souvent celle qui supprime un rôle dans le workflow, pas celle qui l'assiste. Et la réduction du time-to-market d'un SaaS B2B est une des décisions produit les plus impactantes qu'on puisse prendre — parce qu'elle change directement la capacité commerciale de la boîte.
+La meilleure feature est souvent celle qui **supprime un rôle dans le workflow**, pas celle qui l'assiste.
+
+Et la réduction du time-to-market d'un SaaS B2B est une des décisions produit les plus impactantes qu'on puisse prendre — parce qu'elle change directement la capacité commerciale de la boîte, sans recruter.

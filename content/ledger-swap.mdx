@@ -6,27 +6,42 @@ export const meta = {
   intro: "Delivery dans les délais. Intégrations DEX opérationnelles.",
 }
 
+<Role title="PM de transition (freelance)" period="2024 · 4 mois" team="6 devs · 1 EM" />
+
 ## Contexte
 
-Ledger Live est l'app de portefeuille crypto de Ledger. Mission de transition sur 4 mois, le temps que Ledger recrute son PM interne. La feature SWAP — qui permet d'échanger des cryptos directement dans l'app — était en cours de développement avec des intégrations partenaires complexes.
+Ledger Live est l'application de portefeuille crypto de Ledger — des millions d'utilisateurs, des dizaines de blockchains supportées. La feature SWAP permet d'échanger des cryptos directement dans l'app, sans passer par une exchange externe.
+
+Mission de transition sur 4 mois, le temps que Ledger recrute son PM interne. Le produit était en cours de développement avec des intégrations partenaires bloquées.
 
 ## Le défi
 
-SWAP représente 70% du chiffre d'affaires de l'application. Les intégrations DEX (dont THORChain) avaient des blocages techniques et contractuels. Équipe : 6 devs + 1 EM.
+SWAP représente **70% du chiffre d'affaires de Ledger Live**. Les intégrations DEX — dont THORChain, qui permet des swaps cross-chain — avaient des blocages à la fois techniques et contractuels. L'équipe avançait, mais sans ownership produit clair depuis quelques semaines.
 
 ## Ce que j'ai fait
 
-- Reprise en main complète du delivery : ownership opérationnel dès la 1ère semaine
-- Identification des blocages réels (technique vs. organisationnel) et priorisation des résolutions
-- Coordination partenaires DEX pour débloquer les intégrations
-- En parallèle : Discovery du feature Bridge (cas d'usage suivant) — 50+ interviews utilisateurs, cadrage, priorisation
+<Callout title="Priorité semaine 1">
+Avant de toucher à quoi que ce soit, j'ai passé les 3 premiers jours à interviewer individuellement chaque dev. Comprendre qui bloque quoi, et pourquoi — technique vs. organisationnel — avant de prendre la moindre décision.
+</Callout>
+
+**Reprise en main complète du delivery** — ownership opérationnel immédiat, clarification des priorités, déblocage des points de contention entre l'équipe et les partenaires DEX.
+
+**Coordination partenaires** — THORChain et autres intégrations DEX nécessitaient une coordination externe intensive. Identification des vrais blocages contractuels vs. techniques, et résolution en parallèle des deux.
+
+**Discovery du feature Bridge** — en parallèle du delivery SWAP, 50+ interviews utilisateurs pour cadrer le prochain cas d'usage (Bridge = transfert cross-chain). Objectif : laisser un handoff propre au PM suivant.
 
 ## Résultats
 
-- Feature SWAP livrée dans les délais
-- Intégrations DEX opérationnelles → nouveaux flux de revenus
-- Discovery Bridge complète, handoff structuré pour le PM suivant
+<MetricGroup>
+  <Metric value="✓" label="SWAP livré dans les délais" sub="Engagement tenu" />
+  <Metric value="50+" label="Interviews Bridge" sub="Discovery complète" />
+  <Metric value="4 mois" label="Mission de transition" sub="Handoff structuré" />
+</MetricGroup>
+
+Intégrations DEX opérationnelles, nouveaux flux de revenus activés. Discovery Bridge complète avec handoff structuré pour le PM suivant — backlog priorisé, insights utilisateurs documentés, décisions architecturales posées.
 
 ## Ce que j'ai appris
 
-La qualité du delivery dans une mission courte dépend de la vitesse d'acquisition de contexte. J'ai priorisé les 3 premiers jours pour interviewer individuellement chaque dev — comprendre qui bloque quoi, et pourquoi — avant de toucher à quoi que ce soit d'autre.
+La qualité du delivery dans une mission courte dépend de la **vitesse d'acquisition de contexte**. Passer 3 jours à écouter avant d'agir peut sembler lent. En pratique, ça m'a évité 3 semaines de mauvaises décisions.
+
+Dans un contexte où le PM précédent est parti et où l'équipe avance sans cap clair, la première valeur apportée c'est la stabilisation — donner à chaque dev un interlocuteur fiable qui comprend son travail.

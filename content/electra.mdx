@@ -1,0 +1,47 @@
+export const meta = {
+  company: "Electra",
+  period: "janv. – mai 2025",
+  domain: "GreenTech · Mobilité Électrique",
+  tagline: "4 000 → 11 000 bornes via Spark Alliance · App B2C · Android Auto",
+  intro: "UX recharge repensée. Extension réseau ×2,75 via Spark Alliance.",
+}
+
+<Role title="PM (mission Thiga)" period="janv. – mai 2025" team="5–8 devs" />
+
+## Contexte
+
+Electra déploie et opère des stations de recharge rapide pour véhicules électriques en Europe. Là où la recharge lente prend des heures, Electra mise sur des bornes haute puissance — 20 minutes suffisent pour recharger significativement. L'app B2C est le point d'entrée principal : trouver une borne, démarrer la charge, payer.
+
+Produits couverts : app mobile iOS/Android, webapp, app embarquée Android Auto.
+
+## Le défi
+
+L'expérience de recharge commence bien avant de brancher le câble — trouver une borne disponible, comprendre sa puissance, savoir si elle est compatible avec son véhicule, connaître le tarif. C'est **l'amont de la recharge** qui concentre le plus de friction utilisateur, et c'est là que l'app avait le plus à gagner.
+
+En parallèle : Electra voulait étendre massivement sa couverture réseau en intégrant des bornes partenaires via **Spark Alliance**, sans dégrader la cohérence de l'expérience (données, statuts en temps réel, fiabilité des prix).
+
+## Ce que j'ai fait
+
+**Évolutions localisation, filtres, search & paiement** — refonte de l'expérience de recherche de bornes en amont de la recharge : filtres par type de connecteur, puissance, compatibilité véhicule, disponibilité en temps réel. Réduction des allers-retours entre l'app et la borne physique.
+
+**Discovery planificateur Android Auto & EV** — cadrage des cas d'usage embarqués (Android Auto) : contraintes de sécurité strictes (interactions minimales pendant la conduite), spécificités UX de l'écran de bord, navigation intégrée. Discovery restée au stade du cadrage — pas de delivery sur ce chantier.
+
+**Intégration Spark Alliance** — extension du réseau de bornes accessibles dans l'app via le réseau d'interopérabilité Spark Alliance. Travail sur la cohérence des données (statuts, tarifs, disponibilités) entre bornes Electra et bornes partenaires.
+
+**Discovery planificateur de trajet EV** — cadrage d'un nouveau cas d'usage : un planificateur intelligent type "Waze électrique" — optimisation de l'itinéraire en intégrant les arrêts de recharge selon l'autonomie du véhicule, le temps de trajet et la disponibilité des bornes en temps réel. Resté au stade discovery.
+
+## Résultats
+
+<MetricGroup>
+  <Metric value="×2,75" label="Réseau étendu via Spark Alliance" sub="4 000 → 11 000 bornes" />
+  <Metric value="↗" label="Android Auto & planificateur" sub="Discovery cadrée" />
+  <Metric value="↑" label="UX amont recharge" sub="Search, filtres, paiement" />
+</MetricGroup>
+
+L'intégration Spark Alliance a presque triplé le réseau accessible depuis l'app — passant de 4 000 à 11 000 bornes. La discovery du planificateur de trajet a posé les bases d'une différenciation produit forte sur un marché en forte croissance.
+
+## Ce que j'ai appris
+
+L'UX d'un produit de mobilité, c'est autant l'expérience **avant** l'usage que pendant. La friction de "trouver et choisir une borne" est souvent plus bloquante que la recharge elle-même.
+
+Android Auto m'a confronté à des contraintes UX radicalement différentes de l'app mobile : moins d'interactions, plus de contexte, tolérance zéro à l'erreur quand l'utilisateur conduit. Concevoir pour un écran de bord, c'est apprendre à enlever plutôt qu'ajouter.

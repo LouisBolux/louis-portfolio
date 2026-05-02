@@ -1,11 +1,8 @@
 import Link from "next/link";
+import { cases } from "@/content/cases";
 
 export function generateStaticParams() {
-  return [
-    { slug: "pyxo" },
-    { slug: "ledger-swap" },
-    { slug: "calldesk" },
-  ];
+  return cases.map(({ slug }) => ({ slug }));
 }
 
 export const dynamicParams = false;
@@ -73,11 +70,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/case/[slug]"
           <div>
             <p className="text-sm text-zinc-500 mb-1">Autres case studies</p>
             <div className="flex gap-4 flex-wrap">
-              {[
-                { label: "Pyxo", slug: "pyxo" },
-                { label: "Ledger SWAP", slug: "ledger-swap" },
-                { label: "Calldesk", slug: "calldesk" },
-              ]
+              {cases
                 .filter((c) => c.slug !== slug)
                 .map((c) => (
                   <Link
